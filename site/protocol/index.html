@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Protocol - My Docs</title>
+  <title>Protocol - Unofficial Rheem Eziset Protocol Documentation</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
@@ -36,7 +36,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> My Docs</a>
+        <a href=".." class="icon icon-home"> Unofficial Rheem Eziset Protocol Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -47,19 +47,45 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+    <ul>
+    </ul>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../hardware/#use-case">Use Case</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../hardware/#powerline-unit">Powerline Unit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../hardware/#control-module">Control Module</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
+    <ul>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logic/">Logic</a>
+    <ul>
+    </ul>
                     </li>
                 </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Protocol</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#heaternamecgi">/heaterName.cgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#versioncgi">/version.cgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getparamscgi">/getParams.cgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getinfocgi">/getInfo.cgi</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -72,7 +98,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">My Docs</a>
+        <a href="..">Unofficial Rheem Eziset Protocol Documentation</a>
       </nav>
 
       
@@ -96,17 +122,524 @@
             <div class="section">
               
                 <h1 id="protocol">Protocol</h1>
+<p>All requests are made using HTTP GET and are case sensitive. Each subheading below should be passed to your device as follows:</p>
+<pre><code>curl http://192.168.XXX.XXX/heaterName.cgi`
+</code></pre>
+<p>All inputs are also passed via standard HTTP GET arguments as follows:</p>
+<pre><code>curl http://192.168.XXX.XXX/ctrl.cgi?sid=0&amp;heatingCtrl=1
+</code></pre>
+<p>All responses are provided in JSON.</p>
+<h2 id="heaternamecgi">/heaterName.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;heaterName&quot;:&quot;Rheem&quot;}
+</code></pre>
+<p>Inputs:</p>
+<pre><code>None
+</code></pre>
+<p>Outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heaterName</td>
+<td>string</td>
+<td>The friendly name of your heater unit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="versioncgi">/version.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;FWversion&quot;:&quot;1.4&quot;}
+</code></pre>
+<p>Inputs:</p>
+<pre><code>None
+</code></pre>
+<p>Outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FWversion</td>
+<td>string</td>
+<td>The firmware version of your control unit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getparamscgi">/getParams.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;heaterModel&quot;:1,&quot;tempMax&quot;:50,&quot;tempMin&quot;:37,&quot;bathtempMax&quot;:48,&quot;bathtempMin&quot;:37,&quot;bathvolMax&quot;:500,&quot;bathvolMin&quot;:10}
+</code></pre>
+<p>Inputs:</p>
+<pre><code>None
+</code></pre>
+<p>Outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heaterModel</td>
+<td>integer</td>
+<td>Unknown for now. My unit responds with 1. Further research is required to enumerate the model numbers.</td>
+</tr>
+<tr>
+<td>tempMax</td>
+<td>integer</td>
+<td>The maximum temperature that the hot water supply can provide.</td>
+</tr>
+<tr>
+<td>tempMin</td>
+<td>integer</td>
+<td>The minimum temperature that the hot water supply can provide.</td>
+</tr>
+<tr>
+<td>bathtempMax</td>
+<td>integer</td>
+<td>The maximum temperature that the hot water can supply for Bath Fill mode. This mode is designed (as the name implies) to supply a large fixed volume of water at once for filling baths. After the volume is supplied, the water supply will turn itself off.</td>
+</tr>
+<tr>
+<td>bathtempMin</td>
+<td>integer</td>
+<td>The minimum temmperature for Bath Fill mode (see above).</td>
+</tr>
+<tr>
+<td>bathvolMax</td>
+<td>integer</td>
+<td>The maximum volume of water to supply for Bath Fill mode (see above).</td>
+</tr>
+<tr>
+<td>bathvolMin</td>
+<td>integer</td>
+<td>The minimum volume of water to supply for Bath Fill mode (see above).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getinfocgi">/getInfo.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;heaterName&quot;:&quot;Rheem&quot;,&quot;mode&quot;:10,&quot;temp&quot;:37,&quot;flow&quot;:0.0,&quot;wtemp&quot;:14.1,&quot;intemp&quot;:17.9,&quot;state&quot;:1,&quot;appErrCode&quot;:0,&quot;sid&quot;:1154,&quot;sessionTimer&quot;:300,&quot;sTimeout&quot;:248,&quot;heatingCtrl&quot;:1,&quot;bathfillCtrl&quot;:0}
+</code></pre>
+<p>Inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td>false</td>
+<td>integer</td>
+<td>A <em>session id</em> from <code>/ctrl.cgi</code>. If <em>session id</em> is provided then the extra outputs below are revealed.</td>
+</tr>
+</tbody>
+</table>
+<p>Outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>sid Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heaterName</td>
+<td>false</td>
+<td>string</td>
+<td>The friendly name of your heater unit.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>false</td>
+<td>integer</td>
+<td>See below table.</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>false</td>
+<td>integer</td>
+<td>The requested hot water temperature</td>
+</tr>
+<tr>
+<td>flow</td>
+<td>false</td>
+<td>float</td>
+<td>The current flow of hot water through the unit in L/ min rounded to 1 decimal place.</td>
+</tr>
+<tr>
+<td>state</td>
+<td>false</td>
+<td>integer</td>
+<td>1 = idle, 2 = water heater active, 3 = valve closed after bath fill</td>
+</tr>
+<tr>
+<td>appErrCode</td>
+<td>false</td>
+<td>integer</td>
+<td>Apparently, an error code output - codes unknown for now.</td>
+</tr>
+<tr>
+<td>sTimeout</td>
+<td>false</td>
+<td>integer</td>
+<td>If a user has control of the water heater, returns the time left until that session expires in seconds. Otherwise, returns 0.</td>
+</tr>
+<tr>
+<td>sessionTimer</td>
+<td>false</td>
+<td>integer</td>
+<td>Returns the configured session timeout for a user in seconds.</td>
+</tr>
+<tr>
+<td>bathtemp</td>
+<td>false</td>
+<td>integer</td>
+<td>If bath fill mode is activated, returns the requested bath fill temperature.</td>
+</tr>
+<tr>
+<td>bathvol</td>
+<td>false</td>
+<td>integer</td>
+<td>If bath fill mode is activated, returns the requested bath fill volume.</td>
+</tr>
+<tr>
+<td>fillPercent</td>
+<td>false</td>
+<td>float</td>
+<td>If bath fill mode is activated, returns approximate percentage of bath volume dispensed (this percentage is not accurate for very small bath fill volumes).</td>
+</tr>
+<tr>
+<td>wtemp</td>
+<td>true</td>
+<td>float</td>
+<td>The current water temperature as read from the heating block of the water heater in degrees celcius rounded to 1 decimal place.</td>
+</tr>
+<tr>
+<td>intemp</td>
+<td>true</td>
+<td>float</td>
+<td>The current intake water temperature from supply in degrees celcius rounded to 1 decimal place.</td>
+</tr>
+<tr>
+<td>sid</td>
+<td>true</td>
+<td>integer</td>
+<td>Returns your current session id.</td>
+</tr>
+<tr>
+<td>heatingCtrl</td>
+<td>true</td>
+<td>integer</td>
+<td>Returns 1 if you currently have control of the water heater using conventional mode. Otherwise returns 0.</td>
+</tr>
+<tr>
+<td>bathfillCtrl</td>
+<td>true</td>
+<td>integer</td>
+<td>Returns 1 if you currently have control of th water heater using bath fill mode. Otherwise returns 0.</td>
+</tr>
+</tbody>
+</table>
+<p>Modes:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Idle</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Heating Control Mode</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Water Heater Active (Conventional Mode)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Bath Fill Active (Waiting for Tap Open)</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Water Heater Active (Bath Fill Mode)</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Bath Fill Complete (Water Flow Disabled)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ctrlcgi-conventional">/ctrl.cgi Conventional</h1>
+<p>Example output:</p>
+<pre><code>{&quot;sid&quot;:463,&quot;sTimeout&quot;:300,&quot;heatingCtrl&quot;:1,&quot;bathfillCtrl&quot;:0}
+</code></pre>
+<p>Inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td>false</td>
+<td>integer</td>
+<td>A <em>session id</em> from <code>/ctrl.cgi</code>. A <em>session id</em> of 0 must be provided to take control of the water heater.</td>
+</tr>
+<tr>
+<td>heatingCtrl</td>
+<td>false</td>
+<td>integer</td>
+<td>1 = Take control, 0 = Relinquish control</td>
+</tr>
+</tbody>
+</table>
+<p>Outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>sid Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td>false</td>
+<td>integer</td>
+<td>Returns your sid, if you have control. Otherwise, returns 0.</td>
+</tr>
+<tr>
+<td>sTimeout</td>
+<td>false</td>
+<td>integer</td>
+<td>If a user has control of the water heater, returns the time left until that session expires in seconds. Otherwise, returns 0.</td>
+</tr>
+<tr>
+<td>heatingCtrl</td>
+<td>true</td>
+<td>1 = Your session has control, 0 = Your session does not have control.</td>
+<td></td>
+</tr>
+<tr>
+<td>bathfillCtrl</td>
+<td>true</td>
+<td>integer</td>
+<td>See Bath Fill Mode below.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ctrlcgi-bath-fill-mode">/ctrl.cgi Bath Fill Mode</h1>
+<p>Example output:</p>
+<pre><code>{&quot;sid&quot;:649,&quot;sTimeout&quot;:60,&quot;heatingCtrl&quot;:0,&quot;bathfillCtrl&quot;:1,&quot;reqbathtemp&quot;:37,&quot;reqbathvol&quot;:10}
+</code></pre>
+<p>Inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td>true</td>
+<td>integer</td>
+<td>A <em>session id</em> from <code>/ctrl.cgi</code>. A <em>session id</em> of 0 must be provided to take control of the water heater.</td>
+</tr>
+<tr>
+<td>bathfillCtrl</td>
+<td>true</td>
+<td>integer</td>
+<td>1 = Take control, 0 = Relinquish control</td>
+</tr>
+<tr>
+<td>setBathTemp</td>
+<td>false</td>
+<td>integer</td>
+<td>(Required if batthfillCtrl=1) A requested temperature for the bath fill in degrees celcius.</td>
+</tr>
+<tr>
+<td>setBathVol</td>
+<td>false</td>
+<td>integer</td>
+<td>(Required if batthfillCtrl=1) A requested volume for the bath fill in litres of water.</td>
+</tr>
+</tbody>
+</table>
+<p>Outputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>sid Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td>false</td>
+<td>integer</td>
+<td>Returns your sid, if you have control. Otherwise, returns 0.</td>
+</tr>
+<tr>
+<td>sTimeout</td>
+<td>false</td>
+<td>integer</td>
+<td>If a user has control of the water heater, returns the time left until that session expires in seconds. Otherwise, returns 0.</td>
+</tr>
+<tr>
+<td>heatingCtrl</td>
+<td>true</td>
+<td>1 = Your session has control, 0 = Your session does not have control.</td>
+<td></td>
+</tr>
+<tr>
+<td>bathfillCtrl</td>
+<td>true</td>
+<td>integer</td>
+<td>1 = Your session has control, 0 = Your session does not have control.</td>
+</tr>
+<tr>
+<td>reqbathtemp</td>
+<td>true</td>
+<td>integer</td>
+<td>Returns your requested bath fill temperature in degrees celcius.</td>
+</tr>
+<tr>
+<td>reqbathvol</td>
+<td>true</td>
+<td>integer</td>
+<td>Returns your requested bath fill volume in litres.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="setcgi">/set.cgi</h1>
+<p>These commands <strong>require</strong> that you have control via <code>/ctrl.cgi</code> and a <em>session id</em>. At least one of the command inputs must be provided.</p>
+<p>Inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sid</td>
+<td>true</td>
+<td>integer</td>
+<td>A <em>session id</em> from <code>/ctrl.cgi</code>.</td>
+</tr>
+<tr>
+<td>setTemp</td>
+<td>false</td>
+<td>integer</td>
+<td>Sets the requested hot water temperature in degrees celcius.</td>
+</tr>
+<tr>
+<td>setSessionTimer</td>
+<td>false</td>
+<td>integer</td>
+<td>Sets the session timer in seconds after which your control of the water heater will automatically timeout and allow other users control.</td>
+</tr>
+</tbody>
+</table>
+<p>Outputs - setTemp:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>temp</td>
+<td>integer</td>
+<td>Returns the previously set temperature</td>
+</tr>
+<tr>
+<td>reqtemp</td>
+<td>integer</td>
+<td>Returns your requested temperature</td>
+</tr>
+<tr>
+<td>sid</td>
+<td>integer</td>
+<td>Returns your session id</td>
+</tr>
+<tr>
+<td>sTimeout</td>
+<td>integer</td>
+<td>Returns your timeout.</td>
+</tr>
+</tbody>
+</table>
+<p>Outputs - setSessionTimer</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SessionTimer</td>
+<td>integer</td>
+<td>Returns your requested session timer</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="../network/" class="btn btn-neutral" title="Network"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -130,7 +663,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../network/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../logic/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>

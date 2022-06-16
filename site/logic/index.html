@@ -9,15 +9,15 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Hardware - Unofficial Rheem Eziset Protocol Documentation</title>
+  <title>Logic - Unofficial Rheem Eziset Protocol Documentation</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Hardware";
-    var mkdocs_page_input_path = "hardware.md";
+    var mkdocs_page_name = "Logic";
+    var mkdocs_page_input_path = "logic.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -51,14 +51,14 @@
     </ul>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Hardware</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#use-case">Use Case</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../hardware/#use-case">Use Case</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#powerline-unit">Powerline Unit</a>
+    <li class="toctree-l2"><a class="reference internal" href="../hardware/#powerline-unit">Powerline Unit</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#control-module">Control Module</a>
+    <li class="toctree-l2"><a class="reference internal" href="../hardware/#control-module">Control Module</a>
     </li>
     </ul>
                     </li>
@@ -69,9 +69,9 @@
     </ul>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../logic/">Logic</a>
-    <ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Logic</a>
+    <ul class="current">
     </ul>
                     </li>
                 </ul>
@@ -110,7 +110,7 @@
     
       
     
-    <li>Hardware</li>
+    <li>Logic</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -121,36 +121,14 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="hardware">Hardware</h1>
-<p>Note: The information on this page is incomplete. The author has not disassembled his unit to further investigate what his limited investigations have revealed.</p>
-<h2 id="use-case">Use Case</h2>
-<p>According to information on Rheem's own website, this unit can be used on:</p>
-<ul>
-<li>Rheem 12L (876812)</li>
-<li>Rheem Metro 16L (876T16)</li>
-<li>Rheem 20L (876820)</li>
-<li>Rheem Metro 26L (876T26)</li>
-<li>Rheem 27L (876627, 876027, 866627, 866027)</li>
-</ul>
-<p>Rheem claims that the device is only suitable for Rheem 12L to 26L models manufactured since 2018.</p>
-<p><em>Although the author hasn't investigated the matter further, it is unclear why this unit is restricted to models built after 2018. The device emulates the functionality of common kitchen side and bathroom side controllers that have been available for many years. The author does note that the unit may not fit with the included mount inside older models. Certainly, the authors prior unit that was manufactured in 2009 did not have sufficient clearance to fit this device with the standard mount - that said, with some ingenuity the author is certain that this could be made to work (even if not specifically surpported by the vendor).</em></p>
-<h2 id="powerline-unit">Powerline Unit</h2>
-<p><img alt="Powerline Unit" src="../plug.png" /></p>
-<p>Based upon investigations, this unit appears to be purely passive. It communicates wirelessly with the Control Module and passes that information through using ethernet (10/100T). The method of communication is unknown beside the fact that it is not via wifi.</p>
-<p>This information has been surmised because turning off power to the control module results in no response at all from the http server provided by this device.</p>
-<p>Rheem Australia uses a specific MAC Address block it has acquired for the purposes of this unit - the following information is extracted from the IEEE MAC Assignments database:</p>
-<pre><code class="language-Text">50-98-F3   (hex)        Rheem Australia Pty Ltd
-5098F3     (base 16)        Rheem Australia Pty Ltd
-                1 Alan Street
-                Rydalmere  NSW  2116
-                AU
-</code></pre>
-<h2 id="control-module">Control Module</h2>
-<p><img alt="Control Module" src="../control.png" /></p>
-<p>This device is installed inside the water heater unit. </p>
-<p>The white set of 2 cables piggy backs on low voltage the power supply to the water heater control circuitry.</p>
-<p>The black set of cables plugs into the water temperature input/output that is used by Rheem's normal temperature setting devices.</p>
-<p>This control module also operates the webserver which is used to control the temperature of the water heater.</p>
+                <h1 id="logic">Logic</h1>
+<p>This page attempts to explain the logical flow of how to control the water heater.</p>
+<ol>
+<li>By default, the user does not have a control privileges via a session. During an unprivileged session, the user may access: <code>heaterName.cgi</code>, <code>version.cgi</code>, <code>getParams.cgi</code> and <code>getInfo.cgi</code></li>
+<li>A user may escalate their session to control privileges via <code>ctrl.cgi</code> by requesting Heating Control or Bath Fill Control. While having control privileges, this exposes further information under <code>getInfo.cgi</code> and <code>set.cgi</code>.</li>
+<li>The system will wait for the session timer and then timeout the control privileges. Using a <code>set.cgi</code> command will reset your session timer as will turning on the hot water.</li>
+<li>Your control privileges expire after the session timer runs out.</li>
+</ol>
               
             </div>
           </div>
@@ -178,10 +156,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../network/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../network/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../protocol/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

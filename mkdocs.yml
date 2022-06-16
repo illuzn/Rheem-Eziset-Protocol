@@ -1,7 +1,12 @@
-site_name: My Docs
+site_name: Unofficial Rheem Eziset Protocol Documentation
 nav:
   - Home: index.md
   - Hardware: hardware.md
   - Network: network.md
+  - Logic: logic.md
   - Protocol: protocol.md
-theme: readthedocs
+theme: 
+  name: readthedocs
+  navigation_depth: 10
+  collapse_navigation: False
+  prev_next_buttons_location: none
