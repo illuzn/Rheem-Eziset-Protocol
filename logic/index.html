@@ -103,7 +103,8 @@
 <p>This page attempts to explain the logical flow of how to control the water heater.</p>
 <ol>
 <li>By default, the user does not have a control privileges via a session. During an unprivileged session, the user may access: <code>heaterName.cgi</code>, <code>version.cgi</code>, <code>getParams.cgi</code> and <code>getInfo.cgi</code></li>
-<li>A user may escalate their session to control privileges via <code>ctrl.cgi</code> by requesting Heating Control</li>
+<li>A user may escalate their session to control privileges via <code>ctrl.cgi</code> by requesting Heating Control or Bath Fill Control. While having control privileges, this exposes further information under <code>getInfo.cgi</code> and <code>set.cgi</code>.</li>
+<li>The system will wait for the session timer and then timeout the control privileges. </li>
 </ol>
               
             </div>
