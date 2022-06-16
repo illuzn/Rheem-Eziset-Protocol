@@ -60,6 +60,14 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Protocol</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#heaternamecgi">/heaterName.cgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#versioncgi">/version.cgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getparamscgi">/getParams.cgi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getinfocgi">/getInfo.cgi</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -96,6 +104,61 @@
             <div class="section">
               
                 <h1 id="protocol">Protocol</h1>
+<p>All requests are made using HTTP GET and are case sensitive. Each subheading below should be passed to your device as follows:</p>
+<pre><code>curl http://192.168.XXX.XXX/heaterName.cgi`
+</code></pre>
+<p>All responses are provided in JSON.</p>
+<h2 id="heaternamecgi">/heaterName.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;heaterName&quot;:&quot;Rheem&quot;}
+</code></pre>
+<p>Inputs:</p>
+<pre><code>None
+</code></pre>
+<p>Outputs:
+Name | Value | Description
+-----|-------|------------
+heaterName | string | The friendly name of your heater unit. </p>
+<h2 id="versioncgi">/version.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;FWversion&quot;:&quot;1.4&quot;}
+</code></pre>
+<p>Inputs:</p>
+<pre><code>None
+</code></pre>
+<p>Outputs:
+Name | Value | Description
+-----|-------|------------
+FWversion | string | The firmware version of your control unit. </p>
+<h2 id="getparamscgi">/getParams.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;heaterModel&quot;:1,&quot;tempMax&quot;:50,&quot;tempMin&quot;:37,&quot;bathtempMax&quot;:48,&quot;bathtempMin&quot;:37,&quot;bathvolMax&quot;:500,&quot;bathvolMin&quot;:10}
+</code></pre>
+<p>Inputs:</p>
+<pre><code>None
+</code></pre>
+<p>Outputs:
+Name | Value | Description
+-----|-------|------------
+heaterModel | integer | Unknown for now. My unit responds with 1. Further research is required to enumerate the model numbers.
+tempMax | integer | The maximum temperature that the hot water supply can provide.
+tempMin | integer | The minimum temperature that the hot water supply can provide.
+bathtempMax | integer | The maximum temperature that the hot water can supply for Bath Fill mode. This mode is designed (as the name implies) to supply a large fixed volume of water at once for filling baths. After the volume is supplied, the water supply will turn itself off.
+bathtempMin | integer | The minimum temmperature for Bath Fill mode (see above).
+bathvolMax | integer | The maximum volume of water to supply for Bath Fill mode (see above).
+bathvolMin | integer | The minimum volume of water to supply for Bath Fill mode (see above).</p>
+<h2 id="getinfocgi">/getInfo.cgi</h2>
+<p>Example output:</p>
+<pre><code>{&quot;heaterName&quot;:&quot;Rheem&quot;,&quot;mode&quot;:5,&quot;temp&quot;:37,&quot;flow&quot;:0.0,&quot;state&quot;:1,&quot;appErrCode&quot;:0,&quot;sTimeout&quot;:0,&quot;sessionTimer&quot;:300}
+</code></pre>
+<p>Inputs:
+Name | Required | Value | Description
+-----|----------|-------|------------
+sid | <code>false</code> | integer | A <em>session id</em> from <code>/ctrl.cgi</code></p>
+<p>Outputs:
+Name | Value | Description
+-----|-------|------------
+FWversion | string | The firmware version of your control unit. </p>
               
             </div>
           </div>
