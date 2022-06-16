@@ -9,15 +9,15 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Logic - Unofficial Rheem Eziset Protocol Documentation</title>
+  <title>Contribute - Unofficial Rheem Eziset Protocol Documentation</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Logic";
-    var mkdocs_page_input_path = "logic.md";
+    var mkdocs_page_name = "Contribute";
+    var mkdocs_page_input_path = "contribute.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,18 +57,18 @@
                     <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Logic</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logic/">Logic</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../protocol/">Protocol</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../contribute/">Contribute</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Contribute</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -92,10 +92,10 @@
     
       
     
-    <li>Logic</li>
+    <li>Contribute</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/illuzn/Rheem-Eziset-Protocol/blob/main/docs/logic.md"
+        <a href="https://github.com/illuzn/Rheem-Eziset-Protocol/blob/main/docs/contribute.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -106,14 +106,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="logic">Logic</h1>
-<p>This page attempts to explain the logical flow of how to control the water heater.</p>
-<ol>
-<li>By default, the user does not have a control privileges via a session. During an unprivileged session, the user may access: <code>heaterName.cgi</code>, <code>version.cgi</code>, <code>getParams.cgi</code> and <code>getInfo.cgi</code></li>
-<li>A user may escalate their session to control privileges via <code>ctrl.cgi</code> by requesting Heating Control or Bath Fill Control. While having control privileges, this exposes further information under <code>getInfo.cgi</code> and <code>set.cgi</code>.</li>
-<li>The system will wait for the session timer and then timeout the control privileges. Using a <code>set.cgi</code> command will reset your session timer as will turning on the hot water.</li>
-<li>Your control privileges expire after the session timer runs out.</li>
-</ol>
+                <h1 id="contribute">Contribute</h1>
+<p>All contributions are welcome. To contribute submit a pull request against the main branch of the repository.</p>
+<p>To contact the author with any other issues, submit an issue against the main branch of the repository.</p>
               
             </div>
           </div>
@@ -143,10 +138,8 @@
           <a href="https://github.com/illuzn/Rheem-Eziset-Protocol/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../network/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../protocol/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../protocol/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
