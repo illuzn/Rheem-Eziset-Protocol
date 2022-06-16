@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+#Unofficial Rheem Eziset Protocol Documentation
+![Rheem Eziset Kit](device.png)
+These pages seek to document the Rheem Eziset Protocol. 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The Rheem Eziset is a device used to control the hotwater temperatures of certain Rheem Hot Water Systems. It appears to be a local variant only available in Australia for now.
 
-## Commands
+The device is made available to trades via trade wholesalers. Residential customers may purchase these devices from plumbing wholesalers by *implying* that they are a tradesman and quoting the following Rheem Product Code: 052310. Please note that while Rheem officially calls this device the Rheem EZiSET Kit - wholesalers have listed this device under various other names. The author purchased this device under the *Rheem Smartec Communicator* name.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Copyright Notice: Unless otherwise stated, images used on this website belong to Rheem Australia Pty Ltd. They are used on this website on the basis of fair use and to the limited extent required to document the protocol used by the Rheem Eziset system.

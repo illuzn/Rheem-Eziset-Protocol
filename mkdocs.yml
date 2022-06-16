@@ -1,5 +1,7 @@
 site_name: My Docs
 nav:
   - Home: index.md
-  - About: about.md
+  - Hardware: hardware.md
+  - Network: network.md
+  - Protocol: protocol.md
 theme: readthedocs
