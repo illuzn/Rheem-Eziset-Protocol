@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Network - My Docs</title>
+  <title>Network - Unofficial Rheem Eziset Protocol Documentation</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
@@ -36,7 +36,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> My Docs</a>
+        <a href=".." class="icon icon-home"> Unofficial Rheem Eziset Protocol Documentation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -72,7 +72,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">My Docs</a>
+        <a href="..">Unofficial Rheem Eziset Protocol Documentation</a>
       </nav>
 
       
@@ -96,6 +96,25 @@
             <div class="section">
               
                 <h1 id="network">Network</h1>
+<p>A nmap scan reveals only port 80 is open on this device.</p>
+<p>The device only communicates via LAN and does not have any innate cloud connectivity whatsoever.</p>
+<p>Using curl in verbose mode to reveal the http headers reveals the following:</p>
+<pre><code>*   Trying 192.168.XXX.XXX:80...
+* Connected to 192.168.XXX.XXX (192.168.XXX.XXX) port 80 (#0)
+&gt; GET /getInfo.cgi HTTP/1.1
+&gt; Host: 192.168.XXX.XXX
+&gt; User-Agent: curl/7.79.1
+&gt; Accept: */*
+&gt;
+* Mark bundle as not supporting multiuse
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 200 OK
+HTTP/1.0 200 OK
+&lt; Server: embedded.rheem.com.au
+Server: embedded.rheem.com.au
+&lt; Content-type: application/json
+Content-type: application/json
+</code></pre>
               
             </div>
           </div>
