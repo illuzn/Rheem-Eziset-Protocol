@@ -13,3 +13,5 @@ Please note that while Rheem officially calls this device the Rheem EZiSET Kit -
 Disclaimer: The author has no affiliation with Rheem Australia Pty Ltd or any other of its group companies. The information on this website has been obtained by packet sniffing and reverse engineering only and, accordingly, may not be accurate. No representation or warranty is given that the information contained on this website is official or correct. Use the information on this website at your own risk.
 
 Copyright Notice: Unless otherwise stated, images used on this website belong to Rheem Australia Pty Ltd. They are used on this website on the basis of fair use and to the limited extent required to document the protocol used by the Rheem Eziset system.
+
+Rheem and EZiSET are trademarks of Rheem Australia Pty Ltd. These trademarks are used on these pages under fair use and no affiliation or association with Rheem Australia Pty Ltd or any of its group companies is intended or to be inferred by the use of these marks.

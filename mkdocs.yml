@@ -1,12 +1,14 @@
 site_name: Unofficial Rheem Eziset Protocol Documentation
+repo_url: https://github.com/illuzn/Rheem-Eziset-Protocol/
+edit_uri: blob/main/docs/
+site_description: These pages seek to document the Rheem Eziset Protocol.
 nav:
   - Home: index.md
   - Hardware: hardware.md
   - Network: network.md
   - Logic: logic.md
   - Protocol: protocol.md
+  - Contribute: contribute.md
 theme: 
   name: readthedocs
-  navigation_depth: 10
-  collapse_navigation: False
   prev_next_buttons_location: none

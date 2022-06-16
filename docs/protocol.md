@@ -123,7 +123,7 @@ Value | Description
 35 | Bath Fill Complete (Water Flow Disabled)
 
 
-# /ctrl.cgi Conventional
+## /ctrl.cgi Conventional
 
 Example output:
 ```
@@ -148,7 +148,7 @@ heatingCtrl | true | 1 = Your session has control, 0 = Your session does not hav
 bathfillCtrl | true | integer | See Bath Fill Mode below.
 
 
-# /ctrl.cgi Bath Fill Mode
+## /ctrl.cgi Bath Fill Mode
 
 Example output:
 ```
@@ -177,7 +177,7 @@ reqbathtemp | true | integer | Returns your requested bath fill temperature in d
 reqbathvol | true | integer | Returns your requested bath fill volume in litres.
 
 
-# /set.cgi
+## /set.cgi
 
 These commands **require** that you have control via `/ctrl.cgi` and a *session id*. At least one of the command inputs must be provided.
 

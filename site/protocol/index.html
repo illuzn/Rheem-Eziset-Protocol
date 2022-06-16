@@ -47,32 +47,18 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-    <ul>
-    </ul>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../hardware/">Hardware</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../hardware/#use-case">Use Case</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../hardware/#powerline-unit">Powerline Unit</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../hardware/#control-module">Control Module</a>
-    </li>
-    </ul>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
-    <ul>
-    </ul>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../logic/">Logic</a>
-    <ul>
-    </ul>
                     </li>
                 </ul>
                 <ul class="current">
@@ -86,7 +72,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#getinfocgi">/getInfo.cgi</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ctrlcgi-conventional">/ctrl.cgi Conventional</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ctrlcgi-bath-fill-mode">/ctrl.cgi Bath Fill Mode</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setcgi">/set.cgi</a>
+    </li>
     </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contribute/">Contribute</a>
                     </li>
                 </ul>
       </div>
@@ -112,6 +108,9 @@
     
     <li>Protocol</li>
     <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/illuzn/Rheem-Eziset-Protocol/blob/main/docs/protocol.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -398,7 +397,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="ctrlcgi-conventional">/ctrl.cgi Conventional</h1>
+<h2 id="ctrlcgi-conventional">/ctrl.cgi Conventional</h2>
 <p>Example output:</p>
 <pre><code>{&quot;sid&quot;:463,&quot;sTimeout&quot;:300,&quot;heatingCtrl&quot;:1,&quot;bathfillCtrl&quot;:0}
 </code></pre>
@@ -464,7 +463,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="ctrlcgi-bath-fill-mode">/ctrl.cgi Bath Fill Mode</h1>
+<h2 id="ctrlcgi-bath-fill-mode">/ctrl.cgi Bath Fill Mode</h2>
 <p>Example output:</p>
 <pre><code>{&quot;sid&quot;:649,&quot;sTimeout&quot;:60,&quot;heatingCtrl&quot;:0,&quot;bathfillCtrl&quot;:1,&quot;reqbathtemp&quot;:37,&quot;reqbathvol&quot;:10}
 </code></pre>
@@ -554,7 +553,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="setcgi">/set.cgi</h1>
+<h2 id="setcgi">/set.cgi</h2>
 <p>These commands <strong>require</strong> that you have control via <code>/ctrl.cgi</code> and a <em>session id</em>. At least one of the command inputs must be provided.</p>
 <p>Inputs:</p>
 <table>
@@ -662,9 +661,13 @@
   <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+          <a href="https://github.com/illuzn/Rheem-Eziset-Protocol/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
       
         <span><a href="../logic/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
