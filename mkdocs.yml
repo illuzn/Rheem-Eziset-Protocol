@@ -8,6 +8,7 @@ nav:
   - Network: network.md
   - Logic: logic.md
   - Protocol: protocol.md
+  - Home Assistant: ha.md
   - Contribute: contribute.md
 theme: 
   name: readthedocs
