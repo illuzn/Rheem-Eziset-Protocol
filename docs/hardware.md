@@ -20,7 +20,7 @@ Rheem claims that the device is only suitable for Rheem 12L to 26L models manufa
 
 ![Powerline Unit](plug.png)
 
-Based upon investigations, this unit appears to be purely passive. It communicates wirelessly with the Control Module and passes that information through using ethernet (10/100T). The method of communication is unknown beside the fact that it is not via wifi.
+Based upon investigations, this unit appears to be purely passive. It communicates wirelessly with the Control Module and passes that information through using ethernet (10/100T). The method of communication is unknown beside the fact that it is not via a broadcasted wifi SSID.
 
 This information has been surmised because turning off power to the control module results in no response at all from the http server provided by this device.
 
