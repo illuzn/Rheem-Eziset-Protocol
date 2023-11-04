@@ -4,13 +4,48 @@ Currently, I am using the Node-Red addon to make this work with Home Assistant.
 
 ## Working Theory
 
-The deprecated method relied on a lot of hard coded numbers as well as a hack to add 
-
-The below code creates a Rheem device with 5 (6 with the option Google Home helper) entities:
+The below code creates 3 HA entities:
 
 - `input_number.hot_water_temperature`: This is used to set the desired hot water temperature. The code also injects the following custom attributes: `flow` which is the current flow of hot water in L/min and `temp` which is the currently set hot water temp.
 - `switch.hot_water`: This is an on/off switch which switches between 37C and 50C. Not strictly necessary but google assistant and siri cannot handle `input_number` so this is a workaround.
 - `switch.automation_hot_water_timeout`: This switch enables/ disables the automatic safety timeout. After 5 minutes of inactivity the hot water will revert to 37C. This is designed to avoid the situation where after setting a higher temperature you inadvertently scald yourself in the shower (especially important with young children with sensitive skin or where your hot water heater is capable of achieving more than 50C - strictly this should only be in a corporate environment).
+
+## In Home Assistant
+
+Create an `input_number` helper called `input_number.hot_water_temperature`. It should have the following attributes:
+````
+initial: 37
+editable: true
+min: 37
+max: 50
+step: 1
+mode: slider
+unit_of_measurement: °C
+icon: mdi:kettle-steam-outline
+friendly_name: Hot Water Temperature
+````
+
+## In Home Assistant Lovelace (Optional)
+
+I am using the HACS custom card `multiple entity row` to display the flow and current temperature in lovelace neatly.
+![lovelace screenshot](lovelace.png)
+````yaml
+type: entities
+entities:
+  - entity: input_number.hot_water_temperature
+  - entity: input_number.hot_water_temperature
+    type: custom:multiple-entity-row
+    name: Status
+    show_state: false
+    icon: mdi:water-pump
+    entities:
+      - attribute: flow
+        name: Flow
+        unit: L/min
+      - attribute: temp
+        name: Current Temperature
+        unit: °C
+````
 
 ## Node-Red Flow
 
