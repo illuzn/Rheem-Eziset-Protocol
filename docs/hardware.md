@@ -26,7 +26,7 @@ This information has been surmised because turning off power to the control modu
 
 Rheem Australia uses a specific MAC Address block it has acquired for the purposes of this unit - the following information is extracted from the IEEE MAC Assignments database:
 
-```Text
+``` { .text .no-copy }
 50-98-F3   (hex)		Rheem Australia Pty Ltd
 5098F3     (base 16)		Rheem Australia Pty Ltd
 				1 Alan Street
