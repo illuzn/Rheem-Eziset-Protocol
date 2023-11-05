@@ -7,6 +7,7 @@ This new code:
 1. Encapsulates all of the controls/ sensors in 1 device.
 2. (Hopefully) Refines the logic so it works more correctly.
 3. Removes most of the hard-coded values into `number` entities which are configurable from the HA front-end.
+4. Is much more responsive (the previous method required a change being made to a HA entity, which would be picked up by an event handler in Node-RED). After testing, temperature changes take 1-2 seconds as opposed to up to 5s that it would previously take.
 
 ## To-Do
 
