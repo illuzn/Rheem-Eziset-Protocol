@@ -16,7 +16,7 @@ This new code:
 ### v 1.1
 - Correct logic and simplify Timeout function using better nodes
 - Correct logic of google assistant switch
-- All variables should now be configurable via `number`` entities
+- All variables should now be configurable via `number` entities
 
 ### v 1.0:
 Initial Release
