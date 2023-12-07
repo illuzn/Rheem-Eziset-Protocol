@@ -12,6 +12,16 @@ curl http://192.168.XXX.XXX/ctrl.cgi?sid=0&heatingCtrl=1
 
 All responses are provided in JSON.
 
+## DDoS protection
+
+Note: This information is based on speculation, the author has not seen the underlying code to confirm whether or not it is correct.
+
+My Rheem water heater has some basic DDoS protection which was causing lots of connectivity issues which I had thought was due to the devices being around 10 metres apart and seperated by a wall and (including a metal door) - which I thought was reducing signal strength.
+
+Essentially, if the device receives more than 1 request per second (the author cannot determine the precise limits of this), the device will enter a state whereby it will refuse all connections. Since updating to the new Home Assistant logic provided here I haven't run into this issue for around 3 weeks (it previously occurred almost daily especially when there would tend to be a lot of radio interference).
+
+Continued requests (again the author cannot state what this limit is) will cause the device to lock itself down and refuse to answer any requests until the water heater is physically switched on and off again.
+
 ## /heaterName.cgi
 
 Example output:
