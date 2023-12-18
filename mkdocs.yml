@@ -8,8 +8,9 @@ nav:
   - Network: network.md
   - Logic: logic.md
   - Protocol: protocol.md
-  - Home Assistant/ Node-Red: ha.md
-  - Home Assistant (Deprecated): ha_old.md
+  - Home Assistant Custom Component: hacc.md
+  - Home Assistant/ Node-Red (Deprecated): ha.md
+  - Home Assistant (Archival): ha_old.md
   - Contribute: contribute.md
 theme: 
   name: material

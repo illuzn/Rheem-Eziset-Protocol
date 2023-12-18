@@ -16,11 +16,27 @@ Rheem claims that the device is only suitable for Rheem 12L to 26L models manufa
 
 *Although the author hasn't investigated the matter further, it is unclear why this unit is restricted to models built after 2018. The device emulates the functionality of common kitchen side and bathroom side controllers that have been available for many years. The author does note that the unit may not fit with the included mount inside older models. Certainly, the authors prior unit that was manufactured in 2009 did not have sufficient clearance to fit this device with the standard mount - that said, with some ingenuity the author is certain that this could be made to work (even if not specifically surpported by the vendor).*
 
+## Kit
+
+![Rheem Eziset Kit](052310kit.jpg)
+
+Pictured above is the contents which you should receive.
+
+Clockwise from the top-left they are:
+- Box (items unpacked from box)
+- Control Module (this is installed inside your water heater)
+- MAC Address sticker (this is applied to your water heater and is required to comply with ACMA)
+- (Bottom) 2x installation brackets (read the installation instructions, you may need to use 0, 1 or 2 of these depending on your unit).
+- (Middle) Powerline Unit
+- (Bottom) Ethernet cable to connect to your switch/ router/ modem
+- (Middle) Installation Instructions
+- 3x Mounting Screws
+
 ## Powerline Unit
 
 ![Powerline Unit](plug.png)
 
-Based upon investigations, this unit appears to be purely passive. It communicates wirelessly with the Control Module and passes that information through using ethernet (10/100T). The method of communication is unknown beside the fact that it is not via a broadcasted wifi SSID.
+Based upon investigations, this unit appears to be purely passive. It communicates wirelessly with the Control Module and passes that information through using ethernet (10/100T). The method of communication is unknown aside from the fact that it is not via a broadcasted wifi SSID.
 
 This information has been surmised because turning off power to the control module results in no response at all from the http server provided by this device.
 

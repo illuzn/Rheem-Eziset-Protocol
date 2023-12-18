@@ -6,7 +6,7 @@ These pages seek to document the Rheem Eziset Protocol.
 
 The Rheem Eziset is a device used to control the hotwater temperatures of certain Rheem Hot Water Systems. This device appears to be a local variant only available in Australia for now.
 
-The device is made available to trades via trade wholesalers. Residential customers may purchase these devices from plumbing wholesalers by *implying* that they are a tradesman and quoting the following Rheem Product Code: `052310`. 
+The device is made available to trades via trade wholesalers. Residential customers may purchase these devices from plumbing wholesalers by *implying* that they are a tradesman and quoting the following Rheem Product/ Part Code: `052310`. The trade price is around AU$300 but your results may vary.
 
 Please note that while Rheem officially calls this device the Rheem EZiSET Kit - wholesalers have listed this device under various other names. The author purchased this device under the `Rheem Smartec Communicator` name.
 
