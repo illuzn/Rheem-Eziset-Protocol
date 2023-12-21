@@ -196,7 +196,7 @@ Inputs:
 Name | Required | Type | Description
 -----|----------|-------|------------
 sid | true | integer | A *session id* from `/ctrl.cgi`.
-setTemp | false | integer | Sets the requested hot water temperature in degrees celcius.
+setTemp | false | integer | Sets the requested hot water temperature in degrees celcius. You can reduce the temperature while water is flowing and you can also increase the temperature to a maximum of 43C (if you take control before turning on the water).
 setSessionTimer | false | integer | Sets the session timer in seconds after which your control of the water heater will automatically timeout and allow other users control.
 
 
