@@ -45,4 +45,4 @@ Content-type: application/json
 ```
 The device does not respond to requests on any other port.
 
-[^1] https://github.com/illuzn/LGResuAdvisory
+[^1]: https://github.com/illuzn/LGResuAdvisory
