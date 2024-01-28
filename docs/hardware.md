@@ -36,7 +36,7 @@ Clockwise from the top-left they are:
 
 ![Powerline Unit](plug.png)
 
-Based upon investigations, this unit appears to be purely passive. It communicates wirelessly with the Control Module and passes that information through using ethernet (10/100T). The method of communication is unknown aside from the fact that it is not via a broadcasted wifi SSID.
+Based upon investigations, this unit appears to be purely passive. It communicates with the Control Module and passes that information through using ethernet (10/100T).
 
 This information has been surmised because turning off power to the control module results in no response at all from the http server provided by this device.
 
@@ -49,6 +49,19 @@ Rheem Australia uses a specific MAC Address block it has acquired for the purpos
 				Rydalmere  NSW  2116
 				AU
 ```
+
+#### Update 28/1: Credits to jdymond
+
+The powerline unit communicates over the electrical network in the house with the heater which should allow you to put it anywhere as long as it is on the same circuit. This is similar to the Ethernet-over-Power type networking gear available from TP-Link, DLink, etc. There may be connectivity issues in some scenarios though:
+
+* on a house with 3-phase power, putting the heater and powerline unit on different phases wont work (physically separated power lines).
+
+* the heater and powerline unit on the same phase but different circuits in the house. The signal degrades heavily when passing over circuit breakers and/ or protection devices (e.g. UPS or solar battery)
+
+* you are already using an Ethernet over Power type networking device which is interfering with this signal.
+
+The ideal setup is having the heater and powerline adapter on the same circuit if possible with no power filters in between.
+
 
 ## Control Module
 
